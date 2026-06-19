@@ -8,22 +8,35 @@
 
         <mat-card-content>
 
-            <mat-form-field appearance="outline" class="w-100 mb-3">
-                <mat-label>Email</mat-label>
-                <mat-icon matPrefix>person</mat-icon>
-                <input matInput type="email" placeholder="example@gmail.com">
-            </mat-form-field>
+            <form [formGroup]="loginForm">
+                <mat-form-field appearance="outline" class="w-100 mb-3">
+                    <mat-label>Email</mat-label>
+                    <mat-icon matPrefix>person</mat-icon>
+                    <input matInput type="email" placeholder="example@gmail.com" formControlName="email">
+                    @if (loginForm.get('email')?.invalid) {
+                    <mat-error>Email is required</mat-error>
+                    }
+                </mat-form-field>
 
-            <mat-form-field appearance="outline" class="w-100 mb-3">
-                <mat-label>Password</mat-label>
-                <mat-icon matPrefix>lock</mat-icon>
-                <input matInput type="password" placeholder="Enter password">
-            </mat-form-field>
+                <mat-form-field appearance="outline" class="w-100 mb-3">
+                    <mat-label>Password</mat-label>
+                    <mat-icon matPrefix>lock</mat-icon>
+                    <input matInput type="{{hidePassword ? 'password' : 'text'}}" placeholder="Enter password"
+                        formControlName="password">
+                    <mat-icon matSuffix (click)="showPassword()" style="cursor: pointer;">{{hidePassword ?
+                        'visibility_off' : 'visibility'
+                        }}</mat-icon>
+                </mat-form-field>
 
-            <button matButton="filled" class="w-100 login-btn">
-                Login
-            </button>
+                <button matButton="filled" class="w-100" (click)="login()" [disabled]="loginForm.invalid">
+                    Login
+                </button>
 
+                <p class="mt-5 text-center">
+                    Create New Account. <a class="text-primary" style="cursor: pointer;" (click)="routeToSignUp()">Sign
+                        Up</a>
+                </p>
+            </form>
         </mat-card-content>
 
     </mat-card>
