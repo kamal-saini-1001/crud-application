@@ -17,3 +17,8 @@
     --mdc-snackbar-container-color: #2196f3 !important;
     --mat-snack-bar-button-color: #ffffff !important;
 }
+
+.student-dialog .mdc-dialog__surface {
+  border-radius: 20px !important;
+  overflow-y: auto;
+}

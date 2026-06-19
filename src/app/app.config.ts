@@ -3,11 +3,13 @@ import { provideRouter } from '@angular/router';
 
 import { routes } from './app.routes';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { provideNativeDateAdapter } from '@angular/material/core';
 
 export const appConfig: ApplicationConfig = {
   providers: [
     provideBrowserGlobalErrorListeners(),
     provideRouter(routes),
-    importProvidersFrom(MatSnackBarModule)
+    importProvidersFrom(MatSnackBarModule),
+    provideNativeDateAdapter()
   ]
 };

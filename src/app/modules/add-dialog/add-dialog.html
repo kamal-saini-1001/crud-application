@@ -1,1 +1,102 @@
-<p>add-dialog works!</p>
+<div class="container-fluid p-3">
+
+    <h5>{{ heading }}</h5>
+
+    <mat-divider class="mb-4"></mat-divider>
+
+    <form [formGroup]="studentForm">
+
+        <div class="row">
+
+            <div class="col-md-4">
+                <mat-form-field appearance="outline" class="w-100">
+                    <mat-label>ID</mat-label>
+                    <input matInput formControlName="id">
+                </mat-form-field>
+            </div>
+
+            <div class="col-md-8">
+                <mat-form-field appearance="outline" class="w-100">
+                    <mat-label>Full Name</mat-label>
+                    <input matInput formControlName="name">
+                </mat-form-field>
+            </div>
+
+            <div class="col-md-6">
+                <mat-form-field appearance="outline" class="w-100">
+                    <mat-label>Roll Number</mat-label>
+                    <input matInput formControlName="rollNo">
+                </mat-form-field>
+            </div>
+
+            <div class="col-md-6">
+                <mat-form-field appearance="outline" class="w-100">
+                    <mat-label>Email</mat-label>
+                    <input matInput formControlName="email">
+                </mat-form-field>
+            </div>
+
+            <div class="col-md-6">
+                <mat-form-field appearance="outline" class="w-100">
+                    <mat-label>Phone Number</mat-label>
+                    <input matInput formControlName="phone">
+                </mat-form-field>
+            </div>
+
+            <div class="col-md-6">
+                <mat-form-field appearance="outline" class="w-100">
+                    <mat-label>Course</mat-label>
+                    <input matInput formControlName="course">
+                </mat-form-field>
+            </div>
+
+            <div class="col-md-6">
+                <mat-form-field appearance="outline" class="w-100">
+                    <mat-label>Year</mat-label>
+                    <input matInput type="number" formControlName="year">
+                </mat-form-field>
+            </div>
+
+            <div class="col-md-6">
+                <mat-form-field appearance="outline" class="w-100">
+                    <mat-label>Percentage</mat-label>
+                    <input matInput type="number" formControlName="percentage">
+                </mat-form-field>
+            </div>
+
+            <div class="col-md-6">
+                <mat-form-field appearance="outline" class="w-100">
+                    <mat-label>Gender</mat-label>
+                    <mat-select formControlName="gender">
+                        <mat-option value="Male">Male</mat-option>
+                        <mat-option value="Female">Female</mat-option>
+                        <mat-option value="Other">Other</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+
+            <div class="col-md-6">
+                <mat-form-field appearance="outline" class="w-100">
+                    <mat-label>Date of Birth</mat-label>
+                    <input matInput [matDatepicker]="picker" formControlName="date">
+                    <mat-datepicker-toggle matIconSuffix [for]="picker">
+                    </mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                </mat-form-field>
+            </div>
+
+        </div>
+
+        <div class="d-flex justify-content-end mt-3">
+            <button matButton="tonal" type="button" class="me-2" (click)="cancel()">
+                Cancel
+            </button>
+
+            <button matButton="filled" color="primary" type="submit" (click)="confirm()">
+                {{ heading === 'Add Student' ? 'Add Student' : 'Update Student' }}
+            </button>
+        </div>
+
+    </form>
+
+</div>

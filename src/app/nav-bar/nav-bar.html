@@ -1,0 +1,22 @@
+<mat-toolbar color="primary" class="navbar">
+
+    <div class="logo" (click)="goToHome()">
+        <mat-icon class="me-2">school</mat-icon>
+        <span>Student Management System</span>
+    </div>
+
+    <span class="spacer"></span>
+
+    <button mat-icon-button routerLink="profile">
+        <mat-icon>account_circle</mat-icon>
+    </button>
+
+    <button mat-raised-button color="accent" (click)="logout()">
+        Logout
+    </button>
+
+</mat-toolbar>
+
+<mat-divider />
+
+<router-outlet></router-outlet>

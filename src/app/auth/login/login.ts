@@ -65,7 +65,7 @@ export class Login implements OnInit {
 
     if (isUserExist) {
       this.snackbarService.success('Login Successfully.');
-      this.router.navigate(['/dashboard']);
+      this.router.navigate(['/app']);
     } else {
       this.snackbarService.error('Login Failed.');
     }
